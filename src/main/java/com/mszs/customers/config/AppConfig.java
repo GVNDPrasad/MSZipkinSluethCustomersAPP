@@ -1,0 +1,23 @@
+package com.mszs.customers.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestTemplate;
+
+import brave.sampler.Sampler;
+
+@Configuration
+public class AppConfig {
+	
+	@Bean
+	public RestTemplate rt() {
+	  return new RestTemplate();
+	}
+	
+	@Bean
+	public Sampler sam() {
+		return Sampler.ALWAYS_SAMPLE;//Enable mode
+		//return Sampler.NEVER_SAMPLE;//Disaable mode
+	}
+
+}
